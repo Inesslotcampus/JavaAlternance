@@ -1,6 +1,13 @@
-package com.example.demo2;
+package com.example.demo2.model;
+import com.fasterxml.jackson.annotation.JsonFilter;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 public class CharacterResponse {
+    @Id
+    @GeneratedValue
     private long id;
     private String name;
     private String type;
@@ -11,6 +18,9 @@ public class CharacterResponse {
         this.name = name;
         this.type = type;
         this.levelLife = levelLife;
+    }
+    public CharacterResponse() {
+
     }
 
     public long getId() {

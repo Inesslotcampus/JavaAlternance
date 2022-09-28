@@ -1,19 +1,22 @@
 package com.example.demo2.model;
 import com.fasterxml.jackson.annotation.JsonFilter;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 @Entity
+@Table(name = "character")
 public class CharacterResponse {
     @Id
-    @GeneratedValue
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "type")
     private String type;
+    @Column(name = "level_life")
     private  int levelLife;
 
-    public CharacterResponse(long id, String name, String type, int levelLife) {
+    public CharacterResponse(int id, String name, String type, int levelLife) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -23,10 +26,10 @@ public class CharacterResponse {
 
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
     public String getName() {

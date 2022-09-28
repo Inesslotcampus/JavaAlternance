@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @Repository
-public interface CharacterDao{
-    List<CharacterResponse> findAll();
+public interface CharacterDao extends JpaRepository<CharacterResponse, Integer>{
     CharacterResponse findById(int id);
-    CharacterResponse save(CharacterResponse characterResponse);
-    boolean delete(int id);
+    List<CharacterResponse> findAll();
 
-    CharacterResponse update(int id, @RequestBody CharacterResponse characterResponse);
-    Long getMaxId();
+//    boolean deleteById(int id);
+//
+//    CharacterResponse update(int id, @RequestBody CharacterResponse characterResponse);
+
 }
